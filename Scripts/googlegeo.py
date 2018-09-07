@@ -7,7 +7,9 @@ import time
 #from bs4 import BeautifulSoup
 
 googleurl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-googleapi = '&key=AIzaSyBLTlvI1EOLgKU6SRMkOk-Oe1NPKz6ztlI'
+
+#temporarily...free licence
+googleapi = '&key=AIzaSyD7gj21BMbRtNM7g2eppYav3JTMJfysvkE'
 
 
 def getGoogleAddress(x):

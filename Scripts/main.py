@@ -6,11 +6,12 @@ import utf8manage as um
 import sqlite3
 
 #Database
-conn = sqlite3.connect('path_cj_3.db')
+conn = sqlite3.connect('20180908.db')
 curs = conn.cursor()
 curs.execute('create table position(pathnum, pathorder, name, time, lat, lng)')
 
-for i in range(6660214363, 6660220000):
+
+for i in range(617601330752, 617982212582):
     add = str(i)
     pathlist, datelist = cj.cj_listreturn(add)
     l = len(pathlist)

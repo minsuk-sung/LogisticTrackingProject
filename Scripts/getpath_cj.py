@@ -47,14 +47,8 @@ def cj_listreturn(x):
     
     return pathlist, datelist
 
-'''
-a, b = cj_listreturn('6660219904')
-print(a)
-print(b)
+if __name__ == "__main__":
+    a, b = cj_listreturn('617601330752')
 
 
-a, b = cj_listreturn('6662000000')
-print(a)
-print(b)
-'''
 
