@@ -2,10 +2,9 @@
 import googlegeo as gg
 import getpath_cj as cj
 import utf8manage as um
+
 from datetime import datetime
-
 import sqlite3
-
 
 # Setting File name.
 now = datetime.now()
@@ -16,8 +15,6 @@ print(filename)
 conn = sqlite3.connect(filename + '.db')
 curs = conn.cursor()
 curs.execute('create table position(pathnum, pathorder, name, time, lat, lng)')
-
-
 
 
 for i in range(617601330752, 617982212582):
