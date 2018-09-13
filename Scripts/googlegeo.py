@@ -8,18 +8,14 @@ import time
 
 googleurl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
 
-#temporarily...free licence
-googleapi = '&key=AIzaSyD7gj21BMbRtNM7g2eppYav3JTMJfysvkE'
-
-
-def getGoogleAddress(x):
+def getGoogleAddress(x, apikey):
     keyword = x
-    address = googleurl + keyword + googleapi
+    address = googleurl + keyword + apikey
     return address
 
-def getCoordinate(x):
+def getCoordinate(x, apikey):
     time.sleep(1.3)
-    url = getGoogleAddress(x)
+    url = getGoogleAddress(x, apikey)
     response = requests.get(url)
     resp_json_payload = response.json()
     if checkZero(resp_json_payload):

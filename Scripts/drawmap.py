@@ -63,7 +63,6 @@ for x in range(0, len(data)):
             [data[x+1][4], data[x+1][5]]
         ),color=colordensity, opacity=0.4).add_to(map_osm)
 
-        
 '''
 for x in range(0, len(data)):
     print(x)
