@@ -13,14 +13,16 @@ import threading
 apikey = ['&key=AIzaSyD7gj21BMbRtNM7g2eppYav3JTMJfysvkE',
           '&key=AIzaSyDeBDkD0R8QZhpc_tOOwpKy6JZCGzDkJfc']
 
+
 # Setting File name.
 def filename(i):
     now = datetime.now()
     name = str(now.year) + str(now.month).zfill(2) + str(now.day) + str(now.hour).zfill(2) + str(now.minute).zfill(2) + 'th_' + str(i)
     return name
 
-def gentrackingnum(i):
-    return range(617601330752 + i, 617982212582 + i, 2)
+def gentrackingnum(start, end, thread_num, thread_id):
+#    return range(617601330752 + i, 617982212582 + i, 2)
+    return range(start + thread_id, end + thread_id, thread_num)
 
 def crawl(tracking_number_list, apikey, thread_id):
     #Database
@@ -47,15 +49,18 @@ def crawl(tracking_number_list, apikey, thread_id):
             conn.commit()
 
     conn.close()
-    printf("Thread " + thread_id + "is end.")
+    print("Thread " + str(thread_id) + " is end.")
 
-def main():
+def main(start, end):
     #Threadings!
     threads = []
 
     # 2 is the numbers of threads
     for id in range(0, 2):
-        t = threading.Thread(target=crawl, args=(gentrackingnum(id), apikey[id], id))
+#        t = threading.Thread(target=crawl, args=(gentrackingnum(617601330752, 617982212582, 2, id), apikey[id], id))
+
+        t = threading.Thread(target=crawl, args=(gentrackingnum(start, end, 2, id), apikey[id], id))
+
         threads.append(t)
 
     #TO-DO!
