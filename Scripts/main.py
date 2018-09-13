@@ -2,13 +2,22 @@
 import googlegeo as gg
 import getpath_cj as cj
 import utf8manage as um
+from datetime import datetime
 
 import sqlite3
 
+
+# Setting File name.
+now = datetime.now()
+filename = str(now.year) + str(now.month).zfill(2) + str(now.day) + str(now.hour).zfill(2) + str(now.minute).zfill(2)
+print(filename)
+
 #Database
-conn = sqlite3.connect('20180908.db')
+conn = sqlite3.connect(filename + '.db')
 curs = conn.cursor()
 curs.execute('create table position(pathnum, pathorder, name, time, lat, lng)')
+
+
 
 
 for i in range(617601330752, 617982212582):
