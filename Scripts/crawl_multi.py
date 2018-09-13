@@ -1,4 +1,6 @@
-# JUNESEOK BYUN @juneseokdev.me
+# Juneseok Byun
+# byunjuneseok@gmail.com
+
 import googlegeo as gg
 import getpath_cj as cj
 import utf8manage as um
