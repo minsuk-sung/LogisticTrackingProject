@@ -47,6 +47,7 @@ def crawl(tracking_number_list, apikey, thread_id):
             conn.commit()
 
     conn.close()
+    printf("Thread " + thread_id + "is end.")
 
 def main():
     #Threadings!
