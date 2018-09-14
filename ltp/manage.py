@@ -1,5 +1,7 @@
 import crawl_multi
+import googlegeo
 
 if __name__ == '__main__':
-    #FOR TESTING.
-    crawl_multi.main(617601330752, 617601330770)
+    #print("#CJ PATH CRAWLING TEST")
+    print("#GOOGLE API KEY TEST")
+    googlegeo.main()

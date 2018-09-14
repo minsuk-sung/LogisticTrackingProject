@@ -1,10 +1,13 @@
 #-*- encoding: utf-8 -*-
 # JUNESEOK BYUN @juneseokdev.me
+import apikeychain
+
 import folium
 import json
+#from bs4 import BeautifulSoup
+
 import requests
 import time
-#from bs4 import BeautifulSoup
 
 googleurl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
 
@@ -29,3 +32,13 @@ def getCoordinate(x, apikey):
 def checkZero(x):
     return x['status'] == 'ZERO_RESULTS'
 
+def testcode(apikeylist):
+    for id in range(len(apikeylist)):
+        x = getCoordinate('상수역', apikeylist[id])
+        if ((33 < x[0]) and (x[0] < 38) and (124 < x[1]) and (x[1] < 132)):
+            print('[PASSED] API KEY', id, ':', x)
+        else:
+            print('[FAILED] API KEY', id, 'IS INVALID.')
+
+if __name__ == "__main__":
+    testcode(apikeychain.apikey)
