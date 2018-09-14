@@ -55,13 +55,11 @@ def crawl(tracking_number_list, apikey, thread_id):
 def main(start, end):
     #Threadings!
     threads = []
+    apinums = len(apikeychain.apikey)
 
     # 2 is the numbers of threads
-    for id in range(0, 2):
-#        t = threading.Thread(target=crawl, args=(gentrackingnum(617601330752, 617982212582, 2, id), apikey[id], id))
-
-        t = threading.Thread(target=crawl, args=(gentrackingnum(start, end, 2, id), apikeychain.apikey[id], id))
-
+    for id in range(0, apinums):
+        t = threading.Thread(target=crawl, args=(gentrackingnum(start, end, apinums, id), apikeychain.apikey[id], id))
         threads.append(t)
 
     #TO-DO!
