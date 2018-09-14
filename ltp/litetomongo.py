@@ -5,8 +5,6 @@ import sqlite3
 def validarea(x):
     return (33 < x[4]) and (x[4] < 38) and (124 < x[5]) and (x[5] < 132)
 
-
-
 connection = pymongo.MongoClient("localhost", 27017)
 db = connection.CJ
 collection  = db.testCollection

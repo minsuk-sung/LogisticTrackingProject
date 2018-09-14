@@ -1,17 +1,17 @@
 # Juneseok Byun
 # byunjuneseok@gmail.com
 
+
 import googlegeo as gg
 import getpath_cj as cj
 import utf8manage as um
+import apikeychain
 
 from datetime import datetime
 import sqlite3
 import threading
 
 #temporarily...free licence...
-apikey = ['&key=AIzaSyD7gj21BMbRtNM7g2eppYav3JTMJfysvkE',
-          '&key=AIzaSyDeBDkD0R8QZhpc_tOOwpKy6JZCGzDkJfc']
 
 
 # Setting File name.
@@ -60,7 +60,7 @@ def main(start, end):
     for id in range(0, 2):
 #        t = threading.Thread(target=crawl, args=(gentrackingnum(617601330752, 617982212582, 2, id), apikey[id], id))
 
-        t = threading.Thread(target=crawl, args=(gentrackingnum(start, end, 2, id), apikey[id], id))
+        t = threading.Thread(target=crawl, args=(gentrackingnum(start, end, 2, id), apikeychain.apikey[id], id))
 
         threads.append(t)
 
@@ -73,4 +73,4 @@ def main(start, end):
 
 
 if __name__ == '__main__':
-    main()
+    main(617601330752, 617982212582)
