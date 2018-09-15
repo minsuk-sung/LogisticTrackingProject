@@ -24,7 +24,6 @@ def gentrackingnum(start, end, thread_num, thread_id):
     return range(start + thread_id, end + thread_id, thread_num)
 
 def crawl(tracking_number_list, apikey, thread_id):
-    
     #Database
     query = "CREATE TABLE IF NOT EXISTS position(pathnum, pathorder, name, time, lat, lng)"
     conn = sqlite3.connect(filename(thread_id) + '.db')
@@ -45,7 +44,7 @@ def crawl(tracking_number_list, apikey, thread_id):
                 pass
             values = [(i, k, pathlist[k], datelist[k], coordinate[0], coordinate[1])]
 
-            print(values)
+            print("[PASSED] GET NODEDATA", add , ":", values)
             curs.executemany('INSERT INTO position VALUES(?,?,?,?,?,?)', values)
             conn.commit()
 

@@ -23,6 +23,10 @@ def getCoordinate(x, apikey):
     resp_json_payload = response.json()
     if checkZero(resp_json_payload):
         return [0, 0]
+
+    elif checkQuota(resp_json_payload):
+        return [0, 0]
+
     else:
         point = resp_json_payload['results'][0]['geometry']['location']
         lat = point['lat']
@@ -31,6 +35,9 @@ def getCoordinate(x, apikey):
 
 def checkZero(x):
     return x['status'] == 'ZERO_RESULTS'
+
+def checkQuota(x):
+    return 'error_message' in x
 
 def testcode(apikeylist):
     for id in range(len(apikeylist)):

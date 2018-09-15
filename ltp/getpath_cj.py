@@ -17,6 +17,7 @@ def convertTime(x):
 
 
 def cj_listreturn(x):
+    # x is the str
     url = cj_add + x
     req = requests.get(url)
     html = req.text
@@ -42,8 +43,8 @@ def cj_listreturn(x):
         pathlist.append(pathcell)
         datelist.append(datecell)
 
-    print(pathlist)
-    print(datelist)
+    print("[PASSED] GET PATHLIST", x, ":", pathlist)
+    print("[PASSED] GET TIMELINE", x, ":", datelist)
     
     return pathlist, datelist
 
