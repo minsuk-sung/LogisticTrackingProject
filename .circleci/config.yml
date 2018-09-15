@@ -49,9 +49,9 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            coverage run ./manage.py test accounts lists
+            coverage run ltp/manage.py test accounts lists
             codecov
-            
+
       - store_artifacts:
           path: test-reports
           destination: test-reports
