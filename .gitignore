@@ -1,2 +1,6 @@
 
 \.idea/
+
+ltp/__pycache__/
+
+ltp/sqlite_dbdata/
